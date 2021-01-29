@@ -1,0 +1,305 @@
+\documentclass[12pt,twoside, vi, leftblank, openany]{mitthesis}
+
+\pagestyle{plain}
+
+%%%%%%%%%% General LaTEX packages %%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[inner=2cm,outer=1.5cm]{geometry} % comment this out to get equal margins
+\usepackage[svgnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{lgrind}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{cancel}       % cancel text
+\usepackage{bm}           % bold math
+\usepackage{amssymb}      % itemize symbol
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{subcaption}
+\usepackage{empheq}
+\usepackage{siunitx}
+\usepackage[explicit]{titlesec}
+\usepackage{afterpage}
+\usepackage{titletoc}
+\usepackage{epigraph}
+\usepackage{setspace}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{tocloft}
+\usepackage{lscape}
+\usepackage{lineno}
+\usepackage{longtable}
+\usepackage{smartdiagram}
+\usepackage{metalogo}
+\usepackage[]{unnumberedtotoc}
+\usepackage{lipsum}
+\everymath{\displaystyle}
+
+\makeatletter
+\renewcommand{\@chapapp}{}
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\renewcommand{\baselinestretch}{1.5} 
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,chains}
+\usetikzlibrary{shapes,arrows,chains}
+\usetikzlibrary[calc]
+\usepackage{blindtext}  
+\usetikzlibrary{spy}
+
+
+\colorlet{chapnumcolor}{gray}
+\newcommand*{\chapnumfont}{%
+  \usefont{T1}{jkp}{b}{n}%
+  \fontsize{100}{120}%
+  \selectfont%
+}
+\newcommand*{\chaptitlefont}{%
+  \usefont{T1}{qhv}{b}{n}%
+  \fontsize{22}{26}%
+  \selectfont%
+}
+
+\titleformat{name=\chapter}
+{\normalfont\huge\bfseries}
+{\rlap{\parbox{\textwidth}{\filleft\chapnumfont\color{chapnumcolor}\thechapter}}}
+{0pt}
+{\rlap{\parbox{0.7\textwidth}{\filright\chaptitlefont #1}}}
+[\vspace{1pc}{\titlerule[2pt]}\thispagestyle{empty}]
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+
+\smartdiagramset{
+      bubble center node font = \large,
+      bubble node font = \small,
+      bubble center node size =2.5cm,
+      bubble node size =5cm,
+    }
+    \tikzset{
+      bubble node/.append style={
+        text width=2cm,
+        align=center}
+    }
+
+%%%%%%%%%%% Abbreviations and Symbols %%%%%%%%%%%%%%%%
+\usepackage{glossaries}
+\usepackage{longtable}
+\newglossary{symbols}{sym}{sbl}{List of Abbreviations and Symbols}
+\makeglossaries
+
+%%%%%%%%%% Enable figure numbering without section prefixes %%%%%%
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+
+%%%%%%%%%%% biblatex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+\usepackage[
+natbib=true,
+backend=biber,
+citestyle=authoryear,
+bibstyle = numeric,
+,doi=false,isbn=false,url=true
+]{biblatex}
+
+%%%%%%%%%%%%%%%% number references
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defbibenvironment{bibliography}
+{\enumerate{}
+{\setlength{\leftmargin}{\bibhang}%
+\setlength{\itemindent}{-\leftmargin}%
+\setlength{\itemsep}{\bibitemsep}%
+\setlength{\parsep}{\bibparsep}}}
+{\endenumerate}
+{\item}
+
+\usepackage{xcolor}
+\definecolor{blue_cite}{RGB}{0,139,139}
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = blue_cite,
+     urlcolor 	  = blue_cite,
+     linkcolor    = blue_cite
+}
+
+\usepackage{fancyhdr}
+\fancyhead{
+  \fancyhead[R]{}
+}
+
+\pagestyle{fancy}
+\fancyhead[RO,LE]{\leftmark}
+
+
+
+%%%%%%%%%%%%%%%%%%%%% format cite, citep and parencite
+\newcommand{\mkbibbracketscol}[1]{\textcolor{blue_cite}{\mkbibbrackets{#1}}}
+
+\DeclareCiteCommand{\cite}[\mkbibbracketscol]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\DeclareCiteCommand{\cbx@textcite}[\textcolor{blue_cite}]
+  {\usebibmacro{textcite:init}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{textcite}}
+  {}
+  {\usebibmacro{textcite:postnote}}
+\DeclareCiteCommand{\parencite}[\mkbibbracketscol]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\makeatletter
+\newcommand*{\linkblx@startlink}[1]{%
+  \blx@sfsave\hyper@natlinkstart{\the\c@refsection @#1}\blx@sfrest}
+\newcommand*{\linkblx@startlinkentry}{%
+  \linkblx@startlink{\abx@field@entrykey}}
+\newcommand*{\linkblx@endlink}{%
+  \blx@sfsave\hyper@natlinkend\blx@sfrest}
+
+
+\DeclareCiteCommand*{\cite}
+  {}%
+  {\DeclareFieldFormat{bibhyperref}{####1}%
+   \linkblx@startlinkentry
+   \ifnumequal{\value{citecount}}{1}
+     {\usebibmacro{prenote}}
+     {}%
+   \usebibmacro{citeindex}%
+   \usebibmacro{citeyear}%
+   \ifnumequal{\value{citecount}}{\value{citetotal}}
+     {\usebibmacro{postnote}}
+     {}%
+   \iflastcitekey{}{\multicitedelim}%
+   \linkblx@endlink}
+  {}
+  {}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareCiteCommand{\parencite}
+  {}%
+  {\DeclareFieldFormat{bibhyperref}{####1}%
+   \linkblx@startlinkentry
+   \iffirstcitekey{\bibopenparen}{}%
+   \ifnumequal{\value{citecount}}{1}
+     {\usebibmacro{prenote}}
+     {}%
+   \usebibmacro{citeindex}%
+   \usebibmacro{cite}%
+   \ifnumequal{\value{citecount}}{\value{citetotal}}
+     {\usebibmacro{postnote}}
+     {}%
+   \iflastcitekey{\bibcloseparen}{\multicitedelim}%
+   \linkblx@endlink}
+  {}
+  {}
+
+\DeclareCiteCommand*{\parencite}
+  {}%
+  {\DeclareFieldFormat{bibhyperref}{####1}%
+   \linkblx@startlinkentry
+   \iffirstcitekey{\bibopenparen}{}%
+   \ifnumequal{\value{citecount}}{1}
+     {\usebibmacro{prenote}}
+     {}%
+   \usebibmacro{citeindex}%
+   \usebibmacro{citeyear}%
+   \ifnumequal{\value{citecount}}{\value{citetotal}}
+     {\usebibmacro{postnote}}
+     {}%
+   \iflastcitekey{\bibcloseparen}{\multicitedelim}%
+   \linkblx@endlink}
+  {}
+  {}
+
+
+\DeclareCiteCommand{\textcite}
+  {\boolfalse{cbx:parens}}
+  {\DeclareFieldFormat{bibhyperref}{####1}%
+   \linkblx@startlinkentry
+   \usebibmacro{citeindex}%
+   \iffirstcitekey
+     {\setcounter{textcitetotal}{1}}
+     {\stepcounter{textcitetotal}%
+      \textcitedelim}%
+   \usebibmacro{textcite}%
+   \iflastcitekey
+     {}
+     {\ifbool{cbx:parens}
+        {\bibcloseparen\global\boolfalse{cbx:parens}}
+        {}}%
+   \ifnumequal{\value{citecount}}{\value{citetotal}}
+     {\usebibmacro{textcite:postnote}}
+     {}%
+   \linkblx@endlink}
+  {}
+  {}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% add bibnotes %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newcommand{\bibnote}[2]{\@namedef{#1note}{#2}}
+\makeatother
+
+\renewbibmacro{finentry}{\finentry\par\csname \thefield{entrykey}note\endcsname\finentry}
+\renewcommand*{\finentrypunct}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\let\old@endpart\@endpart
+\renewcommand\@endpart[1][]{%
+\begin{quote}#1\end{quote}%
+\old@endpart}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareFieldFormat{labelnumberwidth}{}
+\setlength{\biblabelsep}{0pt}
+
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+
+%% Add path to your bib file here
+\addbibresource{bib.bib}
+
+%%%%%%%%%%%%% Path to image %%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{figures/chap1/}}
+\graphicspath{{figures/chap2/}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\boxedeq}[2]{\begin{empheq}[box={\fboxsep=6pt\fbox}]{align}\label{#1}#2\end{empheq}}
+
+%%%%%%%%%%%%%%%%% add page separators between chapters
+\renewcommand*{\blankpage}{%
+\vspace*{\fill}
+{\centering {\textsc{This page is intentionally left blank}}\par}
+\vspace{\fill}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

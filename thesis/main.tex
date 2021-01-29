@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% File: main.tex
+%%% Authors: Jeyashree Krishnan <krishnan@aices.rwth-aachen.de>
+%%% 		 Ajay Mandyam Rangarajan <rangarajan@aices.rwth-aachen.de>
+%%% This (PhD) thesis template was adapted
+%%% from mitthesis
+%%% http://web.mit.edu/thesis/tex/
+%%% This template can be used for typesetting any thesis or book
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{preamble}				% preamble			
+\include{macros}				% macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% adapt your cover here 
+\include{cover}					% cover
+\include{abstract}				% thesis summary
+\cleardoublepage
+\pagenumbering{roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{contents} 				% table of contents
+\include{ack} 					% acknowledgements
+\include{preface}				% preface
+\include{publ}					% publications
+\include{notations} 			% list of symbols and abbreviations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\pagenumbering{arabic}
+%%% adjust spacing here
+% \singlespacing
+\onehalfspacing
+%%% add line numbers if required
+\linenumbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chap1} 				% chapter 1	
+\include{chap2} 				% chapter 2
+%%% include more chapters here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\include{app}					% appendices
+\include{supp}					% supplementary material
+\include{biblio}      			% bibliography            
+\include{funding}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
