@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[a4paper]{article}
+% \documentclass[ignorenonframetext,red]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[noxcolor]{beamerarticle}
+% \mode<article>{\usepackage{fullpage}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage[capitalize]{cleveref}
+\usepackage{catchfilebetweentags}
+% \pgfdeclareimage[height=1cm]{myimage}{nlr_cp.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label=title]
+\title{(Title)}
+\author{(Author)}
+\date{\today}
+\maketitle
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{sec:intro}
+This is the introduction text. This text is not shown in the
+presentation, but will be part of the article.
+
+This text is once more not shown in the presentation.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Main Part}
+\label{sec:main}
+While this text is not shown in the presentation, the section command
+also applies to the presentation.
+
+Check the equation numbering here. This equation appears only in the notes
+\begin{equation}
+F = ma\label{eq:fma}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label=both]
+This equation appears in both presentations and the notes
+	\begin{equation}
+KE = \frac{1}{2}mv^2\label{eq:ke}
+\end{equation}
+\includegraphics[scale=0.3]{ch}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label=copy]
+This equation appears only in copy presentation and the notes
+	\begin{equation}
+E = mc^2\label{eq:emc2}
+\end{equation}
+\includegraphics[scale=0.5]{ch}
+\end{frame}
+\subsection<article>{Article-Only Section}
+With some more text.
+\begin{frame}[label=main]
+\begin{itemize}
+\item Appears only in main presentation and notes
+\item To check the numbering I am citing~\cref{eq:ke}
+\item In article this is eq 2 but in ppt this is eq1
+\only<article>{\item This particular item is only part
+of the article version.}
+\item<presentation:only@0> This text is also only part of the article.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
