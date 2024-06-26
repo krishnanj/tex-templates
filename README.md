@@ -1,4 +1,4 @@
-# tex-templates
+# TeX Templates
 
 This repository contains a collection of useful LaTeX templates that I have used for many years. These templates are designed to streamline the process of creating reports, presentations, theses, and articles, making it easier to focus on the content rather than the formatting.
 
