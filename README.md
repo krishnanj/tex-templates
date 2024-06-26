@@ -1,13 +1,27 @@
 # tex-templates
-This repository has some useful LaTeX templates that I have used for many years now. 
 
-  The reports/ directory has a bunch of simple templates that can get you started on writing any report or assignment. To compile use pdflatex. 
-  
-  The presentation/ directory has a few templates with simple beamer themes that can be a useful start to create a slide-stack right away. To compile use pdflatex
-  .
-  
-  The thesis/ directory has a bunch of TeX files for writing a full-fledged thesis. It also has a final pdf version to give you an idea of what you can expect. I adapted these files from the [MIT thesis](https://web.mit.edu/thesis/tex/) to write [my PhD thesis](https://publications.rwth-aachen.de/record/775112). To compile simply run python3 run.py.
+This repository contains a collection of useful LaTeX templates that I have used for many years. These templates are designed to streamline the process of creating reports, presentations, theses, and articles, making it easier to focus on the content rather than the formatting.
 
-The beamerarticle/ directory has the LaTeX template for maintaining a document that can generate a verbose article as well as a beamer at the same time. Its a bit tricky to get used to it, but super useful in the long run in my opinion. A lot of the text, float and math need not be repeated between a document you maintain for your project and presentations you may give about it time to time.  To read more about beamerarticle check [here](http://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf). To compile simply run pdflatex main.article.tex & pdflatex main.beamer.tex. [Ajay Mandyam Rangarajan](https://www.aices.rwth-aachen.de/en/people/rangarajan) also contributed to the thesis and beamerartcile MWE that lives in this repository.
+## Directory Overview
+
+### reports/
+The `reports/` directory includes several simple templates that can help you get started on writing any report or assignment. To compile these templates, use `pdflatex`.
+
+### presentation/
+The `presentation/` directory contains a few templates with simple Beamer themes that provide a useful starting point for creating a slide deck. To compile these templates, use `pdflatex`.
+
+### thesis/
+The `thesis/` directory contains a comprehensive set of TeX files for writing a full-fledged thesis. It also includes a final PDF version to give you an idea of what you can expect. These files were adapted from the [MIT thesis](https://web.mit.edu/thesis/tex/) to write [my PhD thesis](https://publications.rwth-aachen.de/record/775112). To compile, simply run `python3 run.py`.
+
+### beamerarticle/
+The `beamerarticle/` directory includes a LaTeX template for maintaining a document that can generate both a verbose article and a Beamer presentation simultaneously. Although it may be tricky to get used to, it is incredibly useful in the long run. This approach allows you to avoid repeating text, floats, and math between a document for your project and the presentations you give about it. To compile, run `pdflatex main.article.tex` and `pdflatex main.beamer.tex`. For more information on Beamer, check [here](http://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf). 
+
+## Summary of Repository Contents
+
+This repository includes various LaTeX templates organized into directories for reports, presentations, theses, and combined Beamer articles. Each directory contains example LaTeX files and related resources to help you quickly set up and compile your documents. These templates are designed to save time and ensure consistency across different types of documents.
+
+## Contributions
+
+[Ajay Mandyam Rangarajan](https://www.aices.rwth-aachen.de/en/people/rangarajan) contributed to the thesis and Beamer article MWE (Minimum Working Example) included in this repository. His contributions have helped enhance the functionality and usability of these templates.
 
 Happy TeXing!
