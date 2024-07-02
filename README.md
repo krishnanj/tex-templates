@@ -22,6 +22,6 @@ This repository includes various LaTeX templates organized into directories for 
 
 ## Contributions
 
-[Ajay Mandyam Rangarajan](https://www.aices.rwth-aachen.de/en/people/rangarajan) contributed to the thesis and Beamer article MWE (Minimum Working Example) included in this repository. His contributions have helped enhance the functionality and usability of these templates.
+[Ajay Mandyam Rangarajan](https://armandyam.github.io/) contributed to the thesis and Beamer article MWE (Minimum Working Example) included in this repository. His contributions have helped enhance the functionality and usability of these templates.
 
 Happy TeXing!
